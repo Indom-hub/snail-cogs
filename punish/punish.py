@@ -325,8 +325,7 @@ class Punish(commands.Cog):
             await ctx.invoke(
                 self.punish_start, user=user, duration=duration, reason=reason
             )
-        else:
-            await self.bot.send_cmd_help(ctx)
+
 
     @punish.command(pass_context=True, no_pm=True, name="start")
     @checks.mod_or_permissions(manage_messages=True)
@@ -619,9 +618,7 @@ class Punish(commands.Cog):
 
     @commands.group(pass_context=True, invoke_without_command=True, no_pm=True)
     @checks.admin_or_permissions(administrator=True)
-    async def punishset(self, ctx):
-        if ctx.invoked_subcommand is None:
-            await self.bot.send_cmd_help(ctx)
+
 
     @punishset.command(pass_context=True, no_pm=True, name="setup")
     async def punishset_setup(self, ctx):
